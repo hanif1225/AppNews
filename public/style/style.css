@@ -1,0 +1,25 @@
+
+.animasi {
+    transition: all 0.1s;
+    -webkit-trantition:all 0.1s;
+}
+.tombol-aktif{
+
+    border-radius:10px;
+    font-family: 'Bakbak One',cursive;
+    font-size: 25px;
+    color:#fff;
+    text-decoration: none;
+}
+
+.biru{
+    background-color: #3498DB;
+    border-bottom:5px solid #2980B9;
+    text-shadow: 0px -2px #2980B9;
+}
+
+.tombol-aktif:active{
+    transform: translate(100px,52px);
+    -webkit-transform:translate(0px,5px);
+    border-bottom:1 px solid;
+}

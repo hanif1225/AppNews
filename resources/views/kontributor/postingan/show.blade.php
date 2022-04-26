@@ -1,0 +1,405 @@
+@extends('master.postingan')   
+@section('isi')
+            <div class="row">
+                    @if($postingan->alasan != '')
+                    <h4 style="color:red"><b>Alasan Ditolak</b></h4>
+                    <div class="alert alert-danger" role="alert">
+                        <article style="color:red">
+                        {!! $postingan->alasan !!}
+                        </article>
+                    </div>
+                    @endif
+                <div class=" col-lg-9">
+                    <div class="binduz-er-author-item mb-40">
+                            <div class="binduz-er-thumb">
+                                <img src="{{asset('postingan')}}/{{$postingan->gambar}}" class="img-fluid" alt="">
+                            </div>
+                        <div class="binduz-er-content">
+                            <div class="binduz-er-meta-item">
+                                <div class="binduz-er-meta-date">
+                                    <span><i class="fal fa-calendar-alt"></i>24th February 2020</span>
+                                </div>
+                            </div>
+                            <h3 class="binduz-er-title">{{$postingan->judul}}</h3>
+                            <div class="binduz-er-meta-author">
+                                <div class="binduz-er-author">
+                                @if($postingan->user->profil == null)
+                                    <img src="{{asset('foto')}}/user.png" height="40" width="40" alt="">
+                                @else    
+                                    <img src="{{asset('foto')}}/{{ $postingan->user->profil->foto }}" height="40" width="40" alt="">
+                                @endif  
+                                    <span>By <span>{{$postingan->user->name}}</span></span>
+                                </div>
+                                <div class="binduz-er-meta-list">
+                                    <!-- <ul>
+                                        <li><i class="fal fa-eye"></i> 5k</li>
+                                        <li><i class="fal fa-heart"></i> 5k</li>
+                                        <li><i class="fal fa-comments"></i> 5k</li>
+                                    </ul> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="binduz-er-blog-details-box">
+                            <div class="binduz-er-text">
+                                <article>
+                                {!! $postingan->isi !!}
+                                </article>
+                            </div>
+                            <br>
+                            <br>
+                            <a href="/like_kontributor/{{$postingan->id}}" class="text-danger"><i class="fas fa-heart"></i> {{$like}} Like</a>
+
+                            <div class="binduz-er-social-share-tag d-block d-sm-flex justify-content-between align-items-center">
+                                <div class="binduz-er-tag">
+                                    <ul>
+                                        <li><a href="#">Popular</a></li>
+                                        <li><a href="#">Desgin</a></li>
+                                        <li><a href="#">UX</a></li>
+                                    </ul>
+                                </div>
+                                <div class="binduz-er-social">
+                                    <ul>
+                                        <!-- <li><a href="#"><i class="fab fa-tumblr"></i></a></li> -->
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="binduz-er-blog-post-prev-next d-flex justify-content-between align-items-center">
+                                <div class="binduz-er-post-prev-next">
+                                    <a href="#">
+                                        <span>Prev Post</span>
+                                        <h4 class="binduz-er-title">Tips On Minimalist</h4>
+                                    </a>
+                                </div>
+                                <div class="binduz-er-post-prev-next text-end">
+                                    <a href="#">
+                                        <span>Next Post</span>
+                                        <h4 class="binduz-er-title">Less Is More</h4>
+                                    </a>
+                                </div>
+                                <div class="binduz-er-post-bars">
+                                    <a href="/"><img src="{{asset('template2')}}/assets/images/icon/home.png"  alt=""></a>
+                                </div>
+                            </div>
+                            <div class="binduz-er-blog-related-post">
+                                <div class="binduz-er-related-post-title">
+                                    <h3 class="binduz-er-title">Related Post</h3>
+                                </div>
+                                <div class="binduz-er-blog-related-post-slide">
+                                    <div class="binduz-er-video-post binduz-er-recently-viewed-item">
+                                        <div class="binduz-er-latest-news-item">
+                                            <div class="binduz-er-thumb">
+                                                <img src="{{asset('template2')}}/assets/images/editors-pack-thumb-1.jpg" alt="">
+                                            </div>
+                                            <div class="binduz-er-content">
+                                                <div class="binduz-er-meta-item">
+                                                    <div class="binduz-er-meta-categories">
+                                                        <a href="#">Technology</a>
+                                                    </div>
+                                                    <div class="binduz-er-meta-date">
+                                                        <span><i class="fal fa-calendar-alt"></i>24th February 2020</span>
+                                                    </div>
+                                                </div>
+                                                <h5 class="binduz-er-title"><a href="#">This new emoji has been years in the making</a></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="binduz-er-video-post binduz-er-recently-viewed-item">
+                                        <div class="binduz-er-latest-news-item">
+                                            <div class="binduz-er-thumb">
+                                                <img src="{{asset('template2')}}/assets/images/editors-pack-thumb-2.jpg" alt="">
+                                            </div>
+                                            <div class="binduz-er-content">
+                                                <div class="binduz-er-meta-item">
+                                                    <div class="binduz-er-meta-categories">
+                                                        <a href="#">Technology</a>
+                                                    </div>
+                                                    <div class="binduz-er-meta-date">
+                                                        <span><i class="fal fa-calendar-alt"></i>24th February 2020</span>
+                                                    </div>
+                                                </div>
+                                                <h5 class="binduz-er-title"><a href="#">A dietitian’s website and blog stir up more business</a></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="binduz-er-video-post binduz-er-recently-viewed-item">
+                                        <div class="binduz-er-latest-news-item">
+                                            <div class="binduz-er-thumb">
+                                                <img src="{{asset('template2')}}/assets/images/editors-pack-thumb-3.jpg" alt="">
+                                            </div>
+                                            <div class="binduz-er-content">
+                                                <div class="binduz-er-meta-item">
+                                                    <div class="binduz-er-meta-categories">
+                                                        <a href="#">Technology</a>
+                                                    </div>
+                                                    <div class="binduz-er-meta-date">
+                                                        <span><i class="fal fa-calendar-alt"></i>24th February 2020</span>
+                                                    </div>
+                                                </div>
+                                                <h5 class="binduz-er-title"><a href="#">New resources on the gender gap in computer science</a></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="binduz-er-video-post binduz-er-recently-viewed-item">
+                                        <div class="binduz-er-latest-news-item">
+                                            <div class="binduz-er-thumb">
+                                                <img src="{{asset('template2')}}/assets/images/editors-pack-thumb-4.jpg" alt="">
+                                            </div>
+                                            <div class="binduz-er-content">
+                                                <div class="binduz-er-meta-item">
+                                                    <div class="binduz-er-meta-categories">
+                                                        <a href="#">Technology</a>
+                                                    </div>
+                                                    <div class="binduz-er-meta-date">
+                                                        <span><i class="fal fa-calendar-alt"></i>24th February 2020</span>
+                                                    </div>
+                                                </div>
+                                                <h5 class="binduz-er-title"><a href="#">Android Enterprise security delivers for flexible work</a></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="binduz-er-blog-post-form">
+                            <form action="{{route('komentar_kontributor')}}" method="POST"  enctype="multipart/form-data">
+                                @csrf
+                                    <div class="binduz-er-blog-post-title">
+                                        <h3 class="binduz-er-title">Tinggalkan Balasan</h3>
+                                    </div>
+                                    <div class="row">
+                                        <div class=" col-lg-12">
+                                        <p class="comment-notes"><span id="email-notes">Jika ingin memberi komentar silahkan login terlebih dahulu !!</span></p>
+                                            <div class="binduz-er-input-box">
+                                                <textarea name="isi" id="isi" class="form-control @error('isi') is-invalid @enderror" cols="10" rows="2" placeholder="Komentar"></textarea>
+                                                    @error('isi')
+                                                    <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                    </div>
+                                                    @enderror
+                                            </div>
+                                                <input type="hidden" name="postingan_id" value="{{$postingan->id}}">
+                                        </div>
+                                        <div class=" col-lg-12">
+                                            <div class="binduz-er-input-box text-end mt-2">
+                                                <button type="submit" class="binduz-er-main-btn">Kirim Komentar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <h5>Komentar ({{$jumlah_komentar}})</h5>
+                                <div class="binduz-er-meta-author">
+                                    @foreach($komentar as $komentar)
+                                        <div class="binduz-er-author">
+                                        @if($komentar->user->profil == null)
+                                            <img src="{{asset('foto')}}/user.png" class="rounded-circle" height="40" width="40" alt="">
+                                        @else
+                                            <img src="{{asset('foto')}}/{{ $komentar->user->profil->foto}}" class="rounded-circle" height="40" width="40" alt="">
+                                        @endif
+                                            <span class="px-1"><b>{{$komentar->user->name}}</b></span>
+                                            <div class="px-5"> 
+                                                <p>{{$komentar->isi }}</p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-lg-3">
+                    <div class="binduz-er-populer-news-sidebar">
+                        <div class="binduz-er-archived-sidebar-about">
+                            <div class="binduz-er-user">
+                                <img src="{{asset('template2')}}/assets/images/archived-about.png" alt="">
+                                <div class="binduz-er-icon">
+                                    <i class="fal fa-newspaper"></i>
+                                </div>
+
+                            </div>
+                            <span>Senior Reportar</span>
+                            <h4 class="binduz-er-title">Miranda H. Hilixer</h4>
+                            <ul>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="binduz-er-author-sidebar-search-bar">
+                            <form action="#">
+                                <div class="binduz-er-input-box">
+                                    <input type="text" placeholder="Search from here...">
+                                    <button type="button"><i class="fal fa-search"></i></button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="binduz-er-populer-news-sidebar-post pt-40">
+                            <div class="binduz-er-popular-news-title">
+                                <ul class="nav nav-pills mb-3" id="pills-tab-2" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Most Popular</a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Most Recent</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-content" id="pills-tabContent-2">
+                                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                    <div class="binduz-er-sidebar-latest-post-box">
+                                        <div class="binduz-er-sidebar-latest-post-item">
+                                            <div class="binduz-er-thumb">
+                                                <img src="{{asset('template2')}}/assets/images/latest-post-1.jpg" alt="latest">
+                                            </div>
+                                            <div class="binduz-er-content">
+                                                <span><i class="fal fa-calendar-alt"></i> 24th February 2020</span>
+                                                <h4 class="binduz-er-title"><a href="#">Why creating inclusive classrooms matters</a></h4>
+                                            </div>
+                                        </div>
+                                        <div class="binduz-er-sidebar-latest-post-item">
+                                            <div class="binduz-er-thumb">
+                                                <img src="{{asset('template2')}}/assets/images/latest-post-2.jpg" alt="latest">
+                                            </div>
+                                            <div class="binduz-er-content">
+                                                <span><i class="fal fa-calendar-alt"></i> 24th February 2020</span>
+                                                <h4 class="binduz-er-title"><a href="#">Celebrating Asian Pacific American art and</a></h4>
+                                            </div>
+                                        </div>
+                                        <div class="binduz-er-sidebar-latest-post-item">
+                                            <div class="binduz-er-thumb">
+                                                <img src="{{asset('template2')}}/assets/images/latest-post-3.jpg" alt="latest">
+                                            </div>
+                                            <div class="binduz-er-content">
+                                                <span><i class="fal fa-calendar-alt"></i> 24th February 2020</span>
+                                                <h4 class="binduz-er-title"><a href="#">From overcoming burnout to finding new</a></h4>
+                                            </div>
+                                        </div>
+                                        <div class="binduz-er-sidebar-latest-post-item">
+                                            <div class="binduz-er-thumb">
+                                                <img src="{{asset('template2')}}/assets/images/latest-post-4.jpg" alt="latest">
+                                            </div>
+                                            <div class="binduz-er-content">
+                                                <span><i class="fal fa-calendar-alt"></i> 24th February 2020</span>
+                                                <h4 class="binduz-er-title"><a href="#">Sparks of inspiration to the new trend 2021</a></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                    <div class="binduz-er-sidebar-latest-post-box">
+                                        <div class="binduz-er-sidebar-latest-post-item">
+                                            <div class="binduz-er-thumb">
+                                                <img src="{{asset('template2')}}/assets/images/latest-post-1.jpg" alt="latest">
+                                            </div>
+                                            <div class="binduz-er-content">
+                                                <span><i class="fal fa-calendar-alt"></i> 24th February 2020</span>
+                                                <h4 class="binduz-er-title"><a href="#">Why creating inclusive classrooms matters</a></h4>
+                                            </div>
+                                        </div>
+                                        <div class="binduz-er-sidebar-latest-post-item">
+                                            <div class="binduz-er-thumb">
+                                                <img src="{{asset('template2')}}/assets/images/latest-post-2.jpg" alt="latest">
+                                            </div>
+                                            <div class="binduz-er-content">
+                                                <span><i class="fal fa-calendar-alt"></i> 24th February 2020</span>
+                                                <h4 class="binduz-er-title"><a href="#">Celebrating Asian Pacific American art and</a></h4>
+                                            </div>
+                                        </div>
+                                        <div class="binduz-er-sidebar-latest-post-item">
+                                            <div class="binduz-er-thumb">
+                                                <img src="{{asset('template2')}}/assets/images/latest-post-3.jpg" alt="latest">
+                                            </div>
+                                            <div class="binduz-er-content">
+                                                <span><i class="fal fa-calendar-alt"></i> 24th February 2020</span>
+                                                <h4 class="binduz-er-title"><a href="#">From overcoming burnout to finding new</a></h4>
+                                            </div>
+                                        </div>
+                                        <div class="binduz-er-sidebar-latest-post-item">
+                                            <div class="binduz-er-thumb">
+                                                <img src="{{asset('template2')}}/assets/images/latest-post-4.jpg" alt="latest">
+                                            </div>
+                                            <div class="binduz-er-content">
+                                                <span><i class="fal fa-calendar-alt"></i> 24th February 2020</span>
+                                                <h4 class="binduz-er-title"><a href="#">Sparks of inspiration to the new trend 2021</a></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="binduz-er-populer-news-sidebar-newsletter binduz-er-author-page-newsletter mt-40">
+                            <div class="binduz-er-newsletter-box text-center">
+                                <img src="{{asset('template2')}}/assets/images/icon/icon-3.png" alt="">
+                            </div>
+                        </div>
+
+                        <div class="binduz-er-populer-news-social binduz-er-author-page-social mt-40">
+                            <div class="binduz-er-popular-news-title">
+                                <h3 class="binduz-er-title">Social Connects</h3>
+                            </div>
+                            <div class="binduz-er-social-list">
+                                <div class="binduz-er-list">
+                                    <a href="#">
+                                        <span><i class="fab fa-facebook-f"></i> <span>15000</span> Likes</span>
+                                        <span>Like</span>
+                                    </a>
+                                    <a href="#">
+                                        <span><i class="fab fa-twitter"></i> <span>15000</span> Likes</span>
+                                        <span>Tweet</span>
+                                    </a>
+                                    <a href="#">
+                                        <span><i class="fab fa-behance"></i> <span>5k+</span> Follower</span>
+                                        <span>Follow</span>
+                                    </a>
+                                    <a href="#">
+                                        <span><i class="fab fa-youtube"></i> <span>15000</span> Subscribe</span>
+                                        <span>Subscribe</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="binduz-er-populer-news-social binduz-er-author-page-social mt-40">
+                            <div class="binduz-er-popular-news-title">
+                                <h3 class="binduz-er-title">Video Post</h3>
+                            </div>
+                            <div class="binduz-er-video-post binduz-er-recently-viewed-item">
+                                <div class="binduz-er-latest-news-item">
+                                    <div class="binduz-er-thumb">
+                                        <img src="{{asset('template2')}}/assets/images/editors-pack-thumb-1.jpg" alt="">
+                                        <div class="binduz-er-play">
+                                            <a href="#"><i class="fas fa-play"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="binduz-er-content">
+                                        <div class="binduz-er-meta-item">
+                                            <div class="binduz-er-meta-categories">
+                                                <a href="#">Technology</a>
+                                            </div>
+                                            <div class="binduz-er-meta-date">
+                                                <span><i class="fal fa-calendar-alt"></i>24th February 2020</span>
+                                            </div>
+                                        </div>
+                                        <h5 class="binduz-er-title"><a href="#">Nearly three weeks after Rita Ora and Chris Brown released their collaboration, “Body On Me,”</a></h5>
+                                        <div class="binduz-er-meta-author">
+                                            <span>By <span>Rosalina D.</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="binduz-er-sidebar-social binduz-er-populer-news-sidebar-add d-none d-lg-block">
+                            <div class="binduz-er-sidebar-add mt-40">
+                                <h3 class="binduz-er-title">Build your website & <span>grow your business</span></h3>
+                                <a class="binduz-er-main-btn" href="#">Purchase</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+@endsection   
